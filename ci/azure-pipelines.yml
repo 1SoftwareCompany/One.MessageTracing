@@ -1,7 +1,7 @@
 ---
 
 variables:
-  PROJECT_DIR: MessageTracing
+  PROJECT_DIR: One.Inception.Domain
 trigger:
   branches:
     include: [master,preview]

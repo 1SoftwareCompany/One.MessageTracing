@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!--Nuget-->
+  <PropertyGroup>
+    <PackageId>One.MessageTracing</PackageId>
+
+    <Product>One.MessageTracing</Product>
+    <Title>One.MessageTracing</Title>
+    <Description>One.MessageTracing is a lightweight message tracking for .NET. It provides an interface for recording the message Id correlation Id, and causation Id of every action, so you can trace any chain of events from start to finish. </Description>
+    <PackageTags>message tracking trace tracer</PackageTags>
+
+    <Copyright>Copyright © 1Software</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RequireLicenseAcceptance>true</RequireLicenseAcceptance>
+
+    <RepositoryUrl>https://github.com/1SoftwareCompany/1nception.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/1SoftwareCompany/1nception</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <AssemblyName>One.MessageTracing</AssemblyName>
+    <RootNamespace>One.MessageTracing</RootNamespace>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Update="NuGetizer" Version="1.4.5" />
+    <PackageReference Update="ThisAssembly.Git" Version="2.1.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,1 @@
+# MessageTracing is a lightweight message tracking for .NET. It provides an interface for recording the message Id correlation Id, and causation Id of every action, so you can trace any chain of events from start to finish. 

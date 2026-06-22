@@ -11,13 +11,19 @@ public static class MessageTracingServiceCollectionExtensions
             .Where(t => typeof(IMessageTracer).IsAssignableFrom(t) && t.IsInterface == false && t.IsAbstract == false);
 
         foreach (var type in tracers)
+        {
+            services.AddSingleton(type);
             services.AddSingleton(typeof(IMessageTracer), type);
+        }
 
         IEnumerable<Type> traceWriters = assemblies.SelectMany(x => x.GetLoadableTypes())
             .Where(t => typeof(IMessageTraceWriter).IsAssignableFrom(t) && t.IsInterface == false && t.IsAbstract == false);
 
         foreach (var type in traceWriters)
+        {
+            services.AddSingleton(type);
             services.AddSingleton(typeof(IMessageTraceWriter), type);
+        }
 
         services.AddSingleton<MessageTracer>();
 

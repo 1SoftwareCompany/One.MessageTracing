@@ -5,7 +5,7 @@ namespace One.MessageTracing;
 
 public static class MessageTracingServiceCollectionExtensions
 {
-    public static IServiceCollection AddMessageTracing(this IServiceCollection services, IEnumerable<Assembly> assemblies)
+    public static IServiceCollection AddMessageTracing(this IServiceCollection services)
     {
         services.AddSingleton<MessageTracer>();
 

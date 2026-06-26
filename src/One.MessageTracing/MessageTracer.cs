@@ -1,14 +1,18 @@
-﻿namespace One.MessageTracing;
+﻿using Microsoft.Extensions.Logging;
+
+namespace One.MessageTracing;
 
 public sealed class MessageTracer
 {
     private readonly IEnumerable<IMessageTracer> _tracers;
     private readonly IEnumerable<IMessageTraceWriter> messageTraceWriters;
+    private readonly ILogger<MessageTracer> _logger;
 
-    public MessageTracer(IEnumerable<IMessageTracer> tracers, IEnumerable<IMessageTraceWriter> messageTraceWriters)
+    public MessageTracer(IEnumerable<IMessageTracer> tracers, IEnumerable<IMessageTraceWriter> messageTraceWriters, ILogger<MessageTracer> logger)
     {
         _tracers = tracers;
         this.messageTraceWriters = messageTraceWriters;
+        _logger = logger;
     }
 
     public async ValueTask<MessageTraceInfo> CreateTraceAsync(string messageId = null)
@@ -34,6 +38,8 @@ public sealed class MessageTracer
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Exception while trying to CreateTraceAsync");
+
             if (string.IsNullOrEmpty(messageId))
                 messageId = Guid.NewGuid().ToString();
 
@@ -49,7 +55,10 @@ public sealed class MessageTracer
             {
                 tracer.Record(incomingMessageId, correlationId);
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Exception while trying to record {typeToRecord}", tracer.GetType().Name);
+            }
         }
     }
 

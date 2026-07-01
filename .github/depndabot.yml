@@ -1,0 +1,18 @@
+version: 2
+
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+    reviewers:
+      - "1SoftwareCompany/soldier"
+
+    commit-message:
+      prefix: "fix: "
+
+    allow:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-patch"

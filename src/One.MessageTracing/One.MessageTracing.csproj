@@ -30,7 +30,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Update="NuGetizer" Version="1.4.9" />
-    <PackageReference Update="ThisAssembly.Git" Version="2.1.2" />
+    <PackageReference Update="ThisAssembly.Git" Version="2.1.3" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
